@@ -1,0 +1,50 @@
+---
+title: "SP-tutorials" 
+author: "Author: Daniela Cassol (danielac@ucr.edu)"
+date: "Last update: `r format(Sys.time(), '%d %B, %Y')`" 
+output:
+  BiocStyle::html_document:
+    toc_float: true
+    code_folding: show
+package: systemPipeR
+vignette: |
+  %\VignetteEncoding{UTF-8}
+  %\VignetteIndexEntry{SP-tutorials}
+  %\VignetteEngine{knitr::rmarkdown}
+fontsize: 14pt
+bibliography: bibtex.bib
+---
+
+# Integration with Jupter notebooks
+
+_systemPipeR_ [@H_Backman2016-bt] relies on `RMarkdown` or `.R` format to organize 
+the code and execute the commands. However, if your code is in a Jupyter/IPython 
+notebook file (`.ipynb` format), it is possible to convert its code cells to RMarkdown
+code chunks, as follow:
+
+```{r}
+rmarkdown:::convert_ipynb("notebook.ipynb", output = xfun::with_ext("notebook.ipynb", "Rmd"))
+```
+
+or from Bash:
+
+```{bash, eval=FALSE}
+jupytext notebook.ipynb --output notebook.Rmd
+## OR
+jupytext notebook.ipynb --output notebook.R
+```
+
+To convert from `.Rmd` to `.ipynb` format, use:
+
+```{bash, eval=FALSE}
+jupytext --to notebook notebook.Rmd 
+```
+
+# Version Information
+
+```{r sessionInfo}
+sessionInfo()
+```
+
+# References
+ 
